@@ -1,3 +1,5 @@
+#Code developed by Slayck 
+#@SlayckX
 #EarthCurvature Calculator
 
 from math import cos, pi, radians
