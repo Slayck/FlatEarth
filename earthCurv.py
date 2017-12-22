@@ -17,20 +17,26 @@ def calcDrop(paramDistance,Perimetre,earthRadius):
 
 def calcEyeDrop(paramDistance,Perimetre,earthRadius,eyeHeight):
     Angle = (paramDistance * 360)/Perimetre
-    cosine_alpha1 = earthRadius/(earthRadius+(eyeHeight/1000))
+    cosine_alpha1 = earthRadius/(earthRadius+(eyeHeight*0.001))
     alpha1 = degrees(acos(cosine_alpha1))
     alpha2 = Angle - alpha1
-    hiddenHeight = (earthRadius / (cos(radians(alpha2)))) - earthRadius
+    if (alpha2 > 0):
+        hiddenHeight = (earthRadius / (cos(radians(alpha2)))) - earthRadius
+    else:
+        hiddenHeight = 0
     
     
     print ("Earth Circumference is:",Perimetre)
     print ("Earth Angle for a Distance of 1KM: ",AngleFor1K)
     print ("Angle of the Object Distance: ",Angle)
-    print ("Eye/Lens Height in KM: ", eyeHeight/1000)
+    print ("Eye/Lens Height in KM: ", eyeHeight*0.001)
     print ("Cosine of Alpha1 angle i: ", cosine_alpha1)
     print ("Alpha1 Angle is: ",alpha1)
     print ("Alpha2 Angle is: ",alpha2)
     print ("Hidden Objects Max Height from the Surface(in meter): ",hiddenHeight * 1000)
+
+
+
 
 print ("Welcome to the Slaycken Earth Curve Calc")
 
@@ -45,3 +51,19 @@ if (Eye>0):
     calcEyeDrop(Distance,Per,earthRad,Eye)    
 else: 
     calcDrop(Distance,Per,earthRad)
+
+
+
+
+
+
+#degrees(acos(0.707))
+#print ("Hidden Objects Max Height from the ur EyE Height: ",paramInvisibleH)
+#dropHeight = 
+#distanceOnCurve = 
+#paramEyeHeight = input("What is Eye Height in Meter") #Distance Parameter
+
+
+#To be put in def if required:
+    #hiddenX = earthRadius * (1 - cos(Angle)) #EarthCurves on Google
+    #print ("Hidden Drop from EarthCurve is ", hiddenX)
